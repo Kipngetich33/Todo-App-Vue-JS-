@@ -24,7 +24,7 @@ export default {
     completeTodo(todo) {
       const todoIndex = this.todos.indexOf(todo);
       this.todos[todoIndex].done = true;
-    },
+    }
   }
 }
 </script>

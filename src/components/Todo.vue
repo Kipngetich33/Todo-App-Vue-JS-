@@ -11,14 +11,16 @@
                     {{ todo.project }}
                 </div>
 
-                <div class="exta content">
-                    <span class='right floated edit icon' v-on:click="showForm">
+                <div class="exta content" v-show="!todo.done">
+                    
+                    <span  v-on:click="showForm()">
                         <i class='edit icon'></i>
                     </span>
                     <!-- add the trash icon in below the edit icon in the template */ -->
-                    <span class='right floated trash icon' v-on:click="deleteTodo(todo)">
+                    <span  v-on:click="deleteTodo(todo)" >
                         <i class='trash icon'></i>
                     </span>
+
                 </div>
             </div>
             <!-- when in edditing mode -->
@@ -47,6 +49,7 @@
             <div class='ui bottom attached red basic button' v-show="!isEditing && !todo.done" >
                 Pending
             </div>
+
         </div>
     </div>
 </template>
@@ -61,7 +64,6 @@ export default {
     },
     methods:{
         showForm(){
-            console.log('show form called')
             this.isEditing = true;
         },
         hideForm(){

@@ -13,7 +13,7 @@
                     </div>
                     <div class='field'>
                         <label>Project</label>
-                        <input type='text' ref='project' defaultValue="">
+                        <input v-model="projectText" type='text' ref='project' defaultValue="">
                     </div>
                     <div class='ui two button attached buttons'>
                         <button class='ui basic blue button' v-on:click="sendForm()">
@@ -39,25 +39,27 @@ export default {
         }
     },
     methods:{
-        openForm() {
+        openForm(){
             this.isCreating = true;
         },
-        closeForm() {
+        closeForm(){
             this.isCreating = false;
         },
-        sendForm() {
+        sendForm(){
             if (this.titleText.length > 0 && this.projectText.length > 0) {
                 const title = this.titleText;
                 const project = this.projectText;
                 this.$emit('add-todo', {
-                title,
-                project,
-                done: false,
+                    title,
+                    project,
+                    done: false,
                 });
-                this.newTodoText = '';
+                this.titleText = '';
+                this.projectText = '';
             }
             this.isCreating = false;
         },
+        
     }
 }
 </script>

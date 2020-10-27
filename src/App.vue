@@ -41,10 +41,7 @@ export default {
   },
   methods:{
       addTodo(title) {
-        this.todos.push({
-          title,
-          done: false,
-        });
+        this.todos.push(title)
       },
   }
 }
@@ -59,5 +56,8 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
   text-align: center;
+}
+.float_right{
+  float:right;
 }
 </style>
